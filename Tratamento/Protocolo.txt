@@ -1,0 +1,10 @@
+### Passo 1 — Gerar a base tratada
+
+Execute o script de tratamento para gerar o arquivo `BASE_PEDE_TRATADA.xlsx`:
+
+```bash
+python tratamento_pede.py
+```
+
+- O script deve gerar o arquivo `BASE_PEDE_TRATADA.xlsx` com a aba `BASE_CONSOLIDADA`.
+- Confirme que o arquivo foi criado na pasta do projeto antes de prosseguir.
