@@ -1,0 +1,9 @@
+## 3. Estrutura de Arquivos
+
+```
+projeto/
+├── app_passos_magicos.py       ← script principal do app
+├── tratamento_pede.py          ← script de tratamento da base (pré-requisito)
+├── BASE_PEDE_TRATADA.xlsx      ← gerado pelo tratamento_pede.py (carregado automaticamente)
+└── protocolo.md                ← este documento
+```
