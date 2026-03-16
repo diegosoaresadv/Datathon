@@ -36,10 +36,124 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-st.markdown(
-    '<iframe src="https://gamma.app/embed/7k4uocz3yper0qj" style="width: 700px; max-width: 100%; height: 450px" allow="fullscreen" title="Passos Mágicos — Análise de Dados & Modelo Preditivo de Risco"></iframe>',
-    unsafe_allow_html=True
-)
+# =============================================================================
+# TEMA GLOBAL — alinhado ao layout da apresentação Gamma (azul escuro + moderno)
+# =============================================================================
+st.markdown("""
+<style>
+/* ── Paleta base ── */
+:root {
+    --pm-blue-deep:   #0D1B2A;
+    --pm-blue-mid:    #1B4F72;
+    --pm-blue-light:  #2E86C1;
+    --pm-accent:      #F4A261;
+    --pm-white:       #F8F9FA;
+    --pm-card-bg:     #132233;
+    --pm-border:      rgba(46,134,193,0.35);
+}
+
+/* ── Fundo principal ── */
+.stApp {
+    background: linear-gradient(160deg, #0D1B2A 0%, #102030 60%, #0D1B2A 100%);
+    color: #E8EDF2;
+}
+
+/* ── Sidebar ── */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #0D1B2A 0%, #0f2236 100%);
+    border-right: 1px solid var(--pm-border);
+}
+[data-testid="stSidebar"] * { color: #CBD5DF !important; }
+[data-testid="stSidebar"] h1,
+[data-testid="stSidebar"] h2 { color: #F4A261 !important; }
+
+/* ── Títulos ── */
+h1 { color: #F4A261 !important; letter-spacing: -0.5px; }
+h2, h3 { color: #7EC8E3 !important; }
+
+/* ── Métricas (st.metric) ── */
+[data-testid="stMetric"] {
+    background: var(--pm-card-bg);
+    border: 1px solid var(--pm-border);
+    border-radius: 12px;
+    padding: 16px 20px;
+}
+[data-testid="stMetricLabel"]  { color: #8AAFC7 !important; font-size: 0.78rem; }
+[data-testid="stMetricValue"]  { color: #F4A261 !important; font-weight: 700; }
+[data-testid="stMetricDelta"]  { color: #7EC8E3 !important; }
+
+/* ── Dataframe / tabelas ── */
+[data-testid="stDataFrame"] {
+    border: 1px solid var(--pm-border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* ── Selectbox / radio / slider ── */
+[data-testid="stSelectbox"] > div,
+[data-testid="stRadio"] > div {
+    background: var(--pm-card-bg);
+    border-radius: 8px;
+    border: 1px solid var(--pm-border);
+}
+
+/* ── Botões ── */
+.stButton > button {
+    background: linear-gradient(135deg, #1B4F72, #2E86C1);
+    color: white !important;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: opacity .2s;
+}
+.stButton > button:hover { opacity: 0.88; }
+
+/* ── Dividers ── */
+hr { border-color: var(--pm-border) !important; }
+
+/* ── Info / Warning / Error boxes ── */
+[data-testid="stAlert"] {
+    border-radius: 10px;
+    border-left-width: 4px;
+}
+
+/* ── Caption / small text ── */
+[data-testid="stCaptionContainer"] { color: #8AAFC7 !important; }
+
+/* ── Apresentação fullscreen container ── */
+.pm-presentation-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;   /* 16:9 */
+    border-radius: 14px;
+    overflow: hidden;
+    border: 2px solid var(--pm-border);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.55);
+}
+.pm-presentation-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+}
+
+/* ── Fullscreen button ── */
+.pm-fs-btn {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 10px 24px;
+    background: linear-gradient(135deg, #1B4F72, #2E86C1);
+    color: #fff !important;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.92rem;
+    transition: opacity .2s;
+    cursor: pointer;
+}
+.pm-fs-btn:hover { opacity: 0.82; text-decoration: none; }
+</style>
+""", unsafe_allow_html=True)
 
 
 # =============================================================================
@@ -300,6 +414,7 @@ with st.sidebar:
     pagina = st.radio(
         "🧭 Navegação",
         [
+            "📋 Apresentação",
             "📊 Visão Geral",
             "🔍 Análise por Indicador",
             "🤖 Modelo Preditivo",
@@ -311,6 +426,38 @@ with st.sidebar:
     st.caption("Desenvolvido para o Datathon Passos Mágicos")
 
 
+
+
+# =============================================================================
+# PÁGINA 0 — APRESENTAÇÃO (não depende de dados)
+# =============================================================================
+if pagina == "📋 Apresentação":
+    st.title("📋 Apresentação — Análise de Dados & Modelo Preditivo")
+    st.caption(
+        "Visualize a apresentação completa do projeto Passos Mágicos. "
+        "Use o botão de tela cheia (⛶) no canto inferior direito do slide para expandir."
+    )
+    st.markdown("""
+    <div class="pm-presentation-wrapper">
+        <iframe
+            src="https://gamma.app/embed/7k4uocz3yper0qj"
+            allow="fullscreen"
+            allowfullscreen
+            title="Passos Mágicos — Análise de Dados & Modelo Preditivo de Risco">
+        </iframe>
+    </div>
+    <div style="margin-top:16px; display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+        <a class="pm-fs-btn"
+           href="https://gamma.app/docs/7k4uocz3yper0qj"
+           target="_blank" rel="noopener">
+            ⛶ &nbsp;Abrir em Tela Cheia
+        </a>
+        <span style="color:#8AAFC7; font-size:0.85rem;">
+            ou pressione o ícone de tela cheia no canto inferior direito da apresentação
+        </span>
+    </div>
+    """, unsafe_allow_html=True)
+    st.stop()
 
 
 # =============================================================================
