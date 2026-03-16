@@ -306,6 +306,13 @@ with st.sidebar:
     st.caption("Desenvolvido para o Datathon Passos Mágicos")
 
 
+st.markdown(
+    '<iframe src="https://gamma.app/embed/7k4uocz3yper0qj" style="width: 700px; max-width: 100%; height: 450px" allow="fullscreen" title="Passos Mágicos — Análise de Dados & Modelo Preditivo de Risco"></iframe>',
+    unsafe_allow_html=True
+)
+
+
+
 # =============================================================================
 # GUARD: sem arquivo → para execução aqui
 # =============================================================================
