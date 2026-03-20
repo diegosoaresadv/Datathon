@@ -754,7 +754,7 @@ else:
         auc_label = f"{auc_score:.4f}" if not np.isnan(auc_score) else "N/D"
         em_risco_n = (df["nivel_risco"] == "Alto Risco").sum()
         c1.metric("AUC (Teste)",         auc_label,
-                  delta="Random Forest")
+                  delta="Gradiente Boost")
         c2.metric("Alunos em Alto Risco", f"{em_risco_n:,}")
         c3.metric("% Alto Risco",         f"{em_risco_n/len(df)*100:.1f}%")
         c4.metric("Total Avaliado",       f"{len(df):,}")
